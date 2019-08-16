@@ -5,20 +5,7 @@ using namespace std;
 
 Reader::Reader(char *filname)
 {
-    //
-    // To do, read file and create tab.
-    //
-
-    elementsNumber = 6;
-
-    tab = new int *[elementsNumber];
-
-    for (int i = 0; i < elementsNumber; i++)
-    {
-        tab[i] = new int[elementsNumber];
-    }
-
-    read(filname);
+    this->read(filname);
 }
 
 void Reader::read(char *filename)
@@ -28,13 +15,16 @@ void Reader::read(char *filename)
 
     if (file.good())
     {
+        file >> elementsNumber;
+        tab = new int *[elementsNumber];
+
         for (int i = 0; i < elementsNumber; i++)
         {
+            tab[i] = new int[elementsNumber];
             for (int j = 0; j < elementsNumber; j++)
             {
                 file >> tab[i][j];
             }
-            //cout << endl;
         }
     }
     else
@@ -45,7 +35,7 @@ void Reader::read(char *filename)
 
 void Reader::printTab()
 {
-    //cout << "Dupa:" << endl;
+    cout << "elementsNumber: " << elementsNumber << endl;
     for (int i = 0; i < elementsNumber; i++)
     {
         for (int j = 0; j < elementsNumber; j++)
