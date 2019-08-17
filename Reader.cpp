@@ -3,9 +3,9 @@
 #include <iostream>
 using namespace std;
 
-Reader::Reader(char *filname)
+Reader::Reader(char * filename)
 {
-    this->read(filname);
+    this->read(filename);
 }
 
 void Reader::read(char *filename)
@@ -17,9 +17,11 @@ void Reader::read(char *filename)
     {
         file >> elementsNumber;
         tab = new int *[elementsNumber];
+        vertices = new int[elementsNumber];
 
         for (int i = 0; i < elementsNumber; i++)
         {
+            vertices[i] = i;
             tab[i] = new int[elementsNumber];
             for (int j = 0; j < elementsNumber; j++)
             {

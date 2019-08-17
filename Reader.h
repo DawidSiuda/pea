@@ -4,14 +4,15 @@
 class Reader
 {
 public:
-    Reader(char *filname);
+    int elementsNumber;
+    int **tab;
+    int *vertices;                      // useful for brute force
+    Reader(char *filename);
     ~Reader();
     void printTab();
 
 private:
-    int elementsNumber;
-    int** tab;
-    void read(char * filename);
+    void read(char *filename);
 };
 
 #endif //READER_H
