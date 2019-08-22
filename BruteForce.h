@@ -9,6 +9,8 @@ struct Path
 
 int sumCosts(int *arr, int **costs, int size);
 
+void copyArray(int *from, int *to, int size);
+
 Path *findShortestPath(int *a, int **costs, int n);
 
 void printResult(Path *p, int size);

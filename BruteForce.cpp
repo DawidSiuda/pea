@@ -1,5 +1,6 @@
 #include "BruteForce.h"
 #include <iostream>
+#include <string.h>
 #include <algorithm>
 using namespace std;
 
@@ -18,16 +19,24 @@ int sumCosts(int *arr, int **costs, int size)
     return sum;
 }
 
+void copyArray(int *from, int *to, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        from[i] = to[i];
+    }
+}
+
 /*
     default: starts with 0
-    to search everything remove '1' from line 41
+    to search everything remove '1' from line 50
 */
 
 Path *findShortestPath(int *arr, int **costs, int size)
 {
     Path *result = new Path();
     result->cost = sumCosts(arr, costs, size);
-    result->shortestPath = arr;
+    result->shortestPath = new int[size];
 
     sort(arr, arr + size);
 
@@ -36,7 +45,7 @@ Path *findShortestPath(int *arr, int **costs, int size)
         if (result->cost > sumCosts(arr, costs, size))
         {
             result->cost = sumCosts(arr, costs, size);
-            result->shortestPath = arr;
+            copyArray(result->shortestPath, arr, size);
         }
     } while (next_permutation(arr + 1, arr + size));
 

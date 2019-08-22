@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-    Reader * reader = new Reader("./testfiles/tsp_6_1.txt");
+    Reader * reader = new Reader("./testfiles/tsp_6_2.txt");
     //reader->printTab();
 
     Path * p = findShortestPath(reader->vertices, reader->tab, reader->elementsNumber);
